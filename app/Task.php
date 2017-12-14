@@ -9,5 +9,10 @@ class Task extends Model
     protected $table = 'tasks';
     protected $primaryKey='id';
     public $timestamps = false;
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }
