@@ -25,6 +25,7 @@
                             <?php
                             $id=$task->id;
                             $urlDel=route('task.destroy',['id'=>$id]);
+                            $urlEdit=route('task.edit',['id'=>$id]);
                             ?>
                             <tr>
                                 <!-- Task Name -->
@@ -33,7 +34,7 @@
                                 </td>
 
                                 <td>
-                                    <a href="">Sửa</a> &nbsp;||&nbsp;
+                                    <a href="{{ $urlEdit }}">Sửa</a> &nbsp;||&nbsp;
                                     <a href="{{ $urlDel }}">Xóa</a>
                                 </td>
                             </tr>
