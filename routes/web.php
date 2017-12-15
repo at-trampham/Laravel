@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::group(['prefix'=>'task','middleware'=>'auth'],function(){
+Route::group(['prefix'=>'tasks','middleware'=>'auth'],function(){
 Route::get('', [
   'uses'  =>'TaskController@index',
   'as'  =>'task.index'

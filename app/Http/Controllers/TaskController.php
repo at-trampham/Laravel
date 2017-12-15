@@ -9,10 +9,10 @@ class TaskController extends Controller
 {
   public function index(){
     $arrTasks=Task::all();
-    return view('task.index',['tasks'=>$arrTasks]);
+    return view('tasks.index',['tasks'=>$arrTasks]);
   }
     public function create(){
-      return view("task.create");
+      return view("tasks.create");
     }
     public function store(Request $request){
       $arrUsers=Auth::user();
@@ -32,7 +32,7 @@ class TaskController extends Controller
     }
     public function edit($id){
         $arrItem=Task::find($id);
-        return view('task.edit',['tasks'=>$arrItem]);
+        return view('tasks.edit',['tasks'=>$arrItem]);
     }
     public function update($id,Request $request){
         $arrItem=Task::find($id);
