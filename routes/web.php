@@ -18,27 +18,29 @@ Route::get('/', function () {
 });
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/task', [
+Route::group(['prefix'=>'task','middleware'=>'auth'],function(){
+Route::get('', [
   'uses'  =>'TaskController@index',
   'as'  =>'task.index'
-  ])->middleware('auth');
-Route::get('/task/add', [
+  ]);
+Route::get('add', [
   'uses'  =>'TaskController@create',
   'as'  =>'task.create'
-  ])->middleware('auth');
-Route::post('/task/add', [
+  ]);
+Route::post('add', [
   'uses'  =>'TaskController@store',
   'as'  =>'task.create'
-  ])->middleware('auth');
-Route::get('/task/edit/{id}', [
+  ]);
+Route::get('edit/{id}', [
   'uses'  =>'TaskController@edit',
   'as'  =>'task.edit'
-  ])->middleware('auth');
-Route::put('/task/edit/{id}', [
+  ]);
+Route::put('edit/{id}', [
   'uses'  =>'TaskController@update',
   'as'  =>'task.edit'
-  ])->middleware('auth');
-Route::get('/task/destroy/{id}', [
+  ]);
+Route::get('destroy/{id}', [
   'uses'  =>'TaskController@destroy',
   'as'  =>'task.destroy'
-  ])->middleware('auth');
+  ]);
+});
