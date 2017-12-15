@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::pattern('slug','(.*)');
+Route::pattern('id','([0-9]*)');
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,6 +29,18 @@ Route::get('/task/add', [
 Route::post('/task/add', [
 	'uses'	=>'TaskController@store',
 	'as'	=>'task.create'
+	])->middleware('auth');
+// Route::get('/task/edit/{id}', [
+// 	'uses'	=>'TaskController@edit',
+// 	'as'	=>'task.create'
+// 	])->middleware('auth');
+// Route::put('/task/edit/{id}', [
+// 	'uses'	=>'TaskController@update',
+// 	'as'	=>'task.create'
+// 	])->middleware('auth');
+Route::get('/task/destroy/{id}', [
+	'uses'	=>'TaskController@destroy',
+	'as'	=>'task.destroy'
 	])->middleware('auth');
 
 
