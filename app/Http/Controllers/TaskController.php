@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Task;
 use Illuminate\Support\Facades\Auth;
+
 class TaskController extends Controller
 {
   public function index(){
-    $arrTasks=Task::all();
+    $arrayUser=Auth::user();
+    $idUser=$arrayUser->id;
+    $arrTasks=Task::all()->where('user_id', $idUser);
     return view('tasks.index',['tasks'=>$arrTasks]);
   }
     public function create(){
