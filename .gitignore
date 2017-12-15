@@ -12,3 +12,4 @@ yarn-error.log
 .env
 ubuntu-xenial-16.04-cloudimg-console.log
 Vagrantfile
+nano.save

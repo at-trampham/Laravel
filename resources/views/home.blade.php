@@ -13,9 +13,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                        <div class="alert alert-success">
+                           <a href="{{ route('task.index') }}" title="">Tasks</a>
+                        </div>
                     You are logged in!
                 </div>
+
             </div>
         </div>
     </div>

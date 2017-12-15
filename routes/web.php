@@ -19,14 +19,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/task', [
 	'uses'	=>'TaskController@index',
 	'as'	=>'task.index'
-	]);
+	])->middleware('auth');
 Route::get('/task/add', [
 	'uses'	=>'TaskController@create',
 	'as'	=>'task.create'
-	]);
+	])->middleware('auth');
 Route::post('/task/add', [
 	'uses'	=>'TaskController@store',
 	'as'	=>'task.create'
-	]);
+	])->middleware('auth');
 
 
